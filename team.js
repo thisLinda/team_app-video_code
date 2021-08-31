@@ -1,3 +1,5 @@
+// STOP UNDOING HERE!
+
 class Member {
   constructor(name, position) {
     this.name = name;
@@ -17,9 +19,9 @@ class Team {
   }
 
   deleteMember(member) {
-    console.log('inside deleteMember function')
+    // console.log('inside deleteMember function')
     // find the index of the member inside the members array 
-    let index = this.members.indexOf(member)
+    let index = this.members.indexOf(member);
     // removes one element passed in above
     this.members.splice(index, 1);
   }
@@ -33,7 +35,7 @@ let teamId = 0;
 // buttons could be optimized
 // instantiating an instance of the team and pushing to the array, returns current id and increments for the next time it's called, getValue is the new team name
 onClick('new-team', () => {
-  console.log('inside new team')
+  // console.log('inside new team')
   teams.push(new Team(teamId++, getValue('new-team-name')));
   // after the new team is called, iterates over the array and builds a table for each
   drawDOM();
@@ -90,7 +92,7 @@ function createDeleteRowButton(team, member) {
   let btn = document.createElement('button');
   btn.className = 'btn btn-primary';
   btn.innerHTML = 'Delete';
-  btn.onClick = () => {
+  btn.onclick = () => {
     let index = team.members.indexOf(member);
     team.members.splice(index, 1);
     drawDOM();
@@ -103,10 +105,10 @@ function createDeleteTeamButton(team) {
   let btn = document.createElement('button');
   btn.className = 'btn btn-primary';
   btn.innerHTML = 'Delete Team';
-  console.log('before the on click fx');
-  console.log(btn)
-  btn.onClick = () => {
-    console.log('inside delete team button');
+  // console.log('before the on click fx');
+  // console.log(btn)
+  btn.onclick = () => {
+    // console.log('inside delete team button');
     let index = teams.indexOf(team);
     teams.splice(index, 1);
     drawDOM();
@@ -119,7 +121,7 @@ function createNewMemberButton(team) {
   let btn = document.createElement('button');
   btn.className = 'btn btn-primary';
   btn.innerHTML = 'Create';
-  btn.onClick = () => {
+  btn.onclick = () => {
     team.members.push(new Member(getValue(`name-input-${team.id}`), getValue(`position-input-${team.id}`)));
     drawDOM();
   };
